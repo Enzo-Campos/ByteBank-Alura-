@@ -10,12 +10,11 @@ export class ContaPoupança extends Operações{
     }
 
     sacar(valor){
-        let taxa = 1.3
+        let taxa = 1.4
         return this._sacar(valor, taxa)
     }
 
     transferir(valor,conta){
-        let taxa = 1.3
-        return this._transferir(valor,conta, taxa)
+        return this._transferir(valor,conta)
     }
 }

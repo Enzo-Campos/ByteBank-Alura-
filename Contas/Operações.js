@@ -26,8 +26,7 @@ export class Operações {
     }
 
     sacar(valor){
-        let taxa = 1
-        return this._sacar(valor, taxa)
+        throw Error ('teste')
     }
 
     _sacar(valor, taxa) {
@@ -40,20 +39,28 @@ export class Operações {
         }
     }
 
+    _sacarTransferencia(valor){
+        const valorSacado = valor
+        if (this._saldo >= valorSacado) {
+            this._saldo -= valorSacado;
+            return valorSacado;
+        } else {
+            console.log('Saldo insufíciente');
+        }
+    }
+
     depositar(valor) {
         if (valor > 0) {
             this._saldo += valor;
-        } else {
-            console.log('O valor depositado precisa ser maior que zero');
         }
     }
 
     transferir(valor,conta){
-        return this._transferir(valor,conta, taxa)
+     throw Error ('teste 2')
     }
 
     _transferir(valor, conta, taxa ) { // Dois parametros pois irei transferir um VALOR para uma CONTA
-        const valorASerTransferido = this.sacar(valor / taxa); // O valor a ser transferido é o saque do VALOR da conta 
+        const valorASerTransferido = this._sacarTransferencia(valor); // O valor a ser transferido é o saque do VALOR da conta 
         conta.depositar(valorASerTransferido); // A transferencia é finalizada quando se DEPOSITA o dinheiro, logo, depositar (valorASerTransferido)
     }
 }

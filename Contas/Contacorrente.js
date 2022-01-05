@@ -14,8 +14,7 @@ export class ContaCorrente extends Operações {
     }
 
     transferir(valor, conta){
-        let taxa = 1.2
-        return this._transferir(valor, conta, taxa)
+        return this._transferir(valor, conta)
     }
 }
 
